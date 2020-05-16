@@ -27,6 +27,7 @@ class Ui_MainWindow(object):
         self.listWidget.setStyleSheet("QListWidget{\n"
 "border: 3px groove #ffffff;\n"
 "color: #ffffff;\n"
+"font-size: 16px;\n"
 "}\n"
 "QScrollBar:vertical {              \n"
 "    border: none;\n"
