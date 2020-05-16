@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'de.ui'
-#
-# Created by: PyQt5 UI code generator 5.14.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -84,4 +76,4 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ARBook"))
-        self.label.setText(_translate("MainWindow", "  You Book"))
+        self.label.setText(_translate("MainWindow", "You Book"))
