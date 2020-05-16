@@ -19,8 +19,8 @@ class ExampleApp(QtWidgets.QMainWindow, de.Ui_MainWindow):
         QToolTip.setFont(QFont('SansSerif', 10))
         self.label.setToolTip('<b>Автор: Abanazar Helper: DeitySenpai</b>')
 
-        whith = QAction(QIcon('loW.svg'), '&White', self)
-        whith.triggered.connect(self.white)
+        white = QAction(QIcon('loW.svg'), '&White', self)
+        white.triggered.connect(self.white)
 
         discord = QAction(QIcon('loD.svg'), '&Dis', self)
         discord.triggered.connect(self.dis)
@@ -29,20 +29,23 @@ class ExampleApp(QtWidgets.QMainWindow, de.Ui_MainWindow):
         cloud.triggered.connect(self.cloud)
 
         menubar = self.menuBar()
+        
         fileMenu = menubar.addMenu('&Theme')
-        fileMenu.addAction(whith)
+        fileMenu.addAction(white)
         fileMenu.addAction(discord)
         fileMenu.addAction(cloud)
+    
     def white(self):
         subprocess.call(['python3', 'd.py'])
+    
     def dis(self):
         subprocess.call(['python3', 'm.py'])
+    
     def cloud(self):
         subprocess.call(['python3', 'dewasik.py'])
 
     def browse_folder(self):
         self.listWidget.clear()
-        global directory
         directory = QtWidgets.QFileDialog.getExistingDirectory(self, "Выберите папку")
         os.chdir(directory)
         self.listWidget_2.clear()
@@ -60,15 +63,15 @@ class ExampleApp(QtWidgets.QMainWindow, de.Ui_MainWindow):
         s = self.listWidget
         for item in s.selectedItems():            
             document = item.text()
+            
             if document.endswith(".pdf"):
                 doc = fitz.open(document)
-                self.textEdit.append(("\nКоличество страниц: %i" % doc.pageCount))
-            
                 for current_page in range(len(doc)):
                     page = doc.loadPage(current_page)
                     page_text = page.getText("text")
                     self.textEdit.append((page_text))
-            if document.endswith(".txt"):
+            
+            elif document.endswith(".txt"):
                 for item in s.selectedItems():            
                     s = item.text()
                     self.textEdit.append(open(s, 'r').read())
